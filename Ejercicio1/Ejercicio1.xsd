@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="catalogos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="libros" type="LibrosType"/>
+                <xs:element name="revistas" type="RevistasType"/>
+                <xs:element name="usuarios" type="UsuariosType"/>
+                <xs:element name="prestamos" type="PrestamosType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="LibrosType">
+        <xs:sequence>
+            <xs:element name="libro" type="LibroType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="LibroType">
+        <xs:sequence>
+            <xs:element name="titulo" type="xs:string"/>
+            <xs:element name="anio" type="xs:gYear"/>
+            <xs:element name="autores" type="AutoresType"/>
+            <xs:element name="etiquetas" type="EtiquetasType" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="categoria" type="xs:string" use="required"/>
+        <xs:attribute name="isbn" type="xs:string" use="required"/>
+        <xs:attribute name="paginas" type="xs:positiveInteger" use="optional"/>
+    </xs:complexType>
+    <xs:complexType name="AutoresType">
+        <xs:sequence>
+            <xs:element name="autor" type="AutorType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AutorType">
+        <xs:sequence>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="orcid" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EtiquetasType">
+        <xs:sequence>
+            <xs:element name="etiqueta" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>  
+    </xs:complexType>
+    <xs:complexType name="RevistasType">
+        <xs:sequence>
+            <xs:element name="revista" type="RevistaType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RevistaType">
+        <xs:sequence>
+            <xs:element name="titulo" type="xs:string"/>
+            <xs:element name="anio" type="xs:gYear"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="area" type="xs:string" use="required"/>
+        <xs:attribute name="issn" type="xs:string" use="required"/>
+        <xs:attribute name="numero" type="xs:positiveInteger" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="UsuariosType">
+        <xs:sequence>
+            <xs:element name="usuario" type="UsuarioType" maxOccurs="unbounded"/>
+        </xs:sequence>  
+    </xs:complexType>
+    <xs:complexType name="UsuarioType">
+        <xs:sequence>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="tipo" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="PrestamosType">
+        <xs:sequence>
+            <xs:element name="prestamo" type="PrestamoType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PrestamoType">
+        <xs:sequence>
+            <xs:element name="fecha_inicio" type="xs:date"/>
+            <xs:element name="fecha_fin" type="xs:date" minOccurs="0"/>
+            <xs:element name="estado" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="itemRef" type="xs:IDREF" use="required"/>
+        <xs:attribute name="usuarioRef" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+
+</xs:schema>

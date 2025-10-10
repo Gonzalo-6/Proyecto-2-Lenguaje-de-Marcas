@@ -1,0 +1,2 @@
+<!ELEMENT catalogo (libros, revistas, usuarios, prestamos)>
+<!ATTLIST catalogo fecha CDATA #REQUIRED>
