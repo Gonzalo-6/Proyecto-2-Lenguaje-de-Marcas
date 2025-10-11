@@ -1,2 +1,52 @@
 <!ELEMENT catalogo (libros, revistas, usuarios, prestamos)>
 <!ATTLIST catalogo fecha CDATA #REQUIRED>
+<!-- LIBROS -->
+<!ELEMENT libros (libro+)>
+<!ELEMENT libro (titulo, anio, autores, etiqueta)>
+<!ATTLIST libro
+ id ID #REQUIRED
+ categoria CDATA #REQUIRED
+ isbn CDATA #REQUIRED
+ paginas CDATA #IMPLIED  
+ >
+<!ELEMENT titulo (#PCDATA)>
+<!ELEMENT anio (#PCDATA)>   
+<!ELEMENT autores (autor+)>
+<!ELEMENT autor (#PCDATA)>  
+<!ELEMENT orcid (#PCDATA)>
+<!ELEMENT etiquetas (etiqueta+)>
+<!ELEMENT etiqueta (#PCDATA)>
+
+<!-- REVISTAS -->
+<!ELEMENT revistas (revista+)>
+<!ELEMENT revista (titulo, anio)>
+<!ATTLIST revista
+ id ID #REQUIRED
+ area CDATA #REQUIRED
+ issn CDATA #REQUIRED
+ numero CDATA #REQUIRED
+>
+<!ELEMENT titulo (#PCDATA)>
+<!ELEMENT anio (#PCDATA)>
+
+<!-- USUARIOS -->
+<!ELEMENT usuarios (usuario+)>
+<!ELEMENT usuario (nombre, email, telefono?)>
+<!ATTLIST usuario
+ id ID #REQUIRED
+ tipo (alumno|profesor) #REQUIRED
+ >
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+
+<!--PRESTAMOS-->
+<!ELEMENT prestamos (prestamo+)>
+<!ELEMENT prestamo (fecha_inicio, fecha_fin, estado)>
+<!ATTLIST prestamo
+ id ID #REQUIRED
+ itemRef IDREF #REQUIRED
+ usuarioRef IDREF #REQUIRED
+ >
+<!ELEMENT fecha_de_inicio (#PCDATA)>
+<!ELEMENT fecha_de_fin (#PCDATA)>
+<!ELEMENT estado (#PCDATA)>
