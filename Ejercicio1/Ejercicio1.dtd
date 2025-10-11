@@ -2,7 +2,7 @@
 <!ATTLIST catalogo fecha CDATA #REQUIRED>
 <!-- LIBROS -->
 <!ELEMENT libros (libro+)>
-<!ELEMENT libro (titulo, anio, autores, etiqueta)>
+<!ELEMENT libro (titulo, anio, autores, etiquetas?)>
 <!ATTLIST libro
  id ID #REQUIRED
  categoria CDATA #REQUIRED

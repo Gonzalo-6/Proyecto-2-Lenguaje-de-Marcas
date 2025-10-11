@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plataforma fecha="2025-10-11">
+    <cursos>
+        <curso id="FP001" codigo="DAW-001">
+            <titulo>TS Diseño de aplicaciones web</titulo>
+            <nivel>superior</nivel>
+            <modalidad>online</modalidad>
+            <horas>2000</horas>
+            <modulos>
+                <modulo clave="LLMM01">
+                    <nombre>Lenguaje de Marcas</nombre>
+                    <horas>180</horas>
+                </modulo>
+                <modulo clave="BD01">
+                    <nombre>Base de Datos</nombre>
+                    <horas>240</horas>
+                </modulo>
+            </modulos>
+        </curso>
+        <curso id="FP002" codigo="DAM-001">
+            <titulo>TS Desarrollo de aplicaciones multiplataforma</titulo>
+            <nivel>superior</nivel>
+            <modalidad>presencial</modalidad>
+            <horas>2000</horas>
+        </curso>
+    </cursos>
+    <alumnos>
+        <alumno id="A001" nif="12345678A">
+            <nombre>Andrs Gomez Gordo</nombre>
+            <email>a.gomez@fp.com</email>
+            <telefono>600123456</telefono>
+        </alumno>
+        <alumno id="A002">
+            <nombre>Alberto Viedma del Monte</nombre>
+            <email>a.viedma@fp.com</email>
+        </alumno>
+    </alumnos>
+    <matriculas>
+        <matricula id="M001" alumnoRef="A001" cursoRef="FP001">
+            <fecha_alta>2025-01-15</fecha_alta>
+            <estado>activa</estado>
+        </matricula>
+        <matricula id="M002" alumnoRef="A002" cursoRef="FP002">
+            <fecha_alta>2025-01-20</fecha_alta>
+            <estado>activa</estado>
+        </matricula>
+    </matriculas>
+    <evaluaciones>
+        <evaluacion id="E001" matriculaRef="M001">
+            <instrumento>Evaluación continua</instrumento>
+            <convocatoria>ordinaria</convocatoria>
+            <nota>9.5</nota>
+        </evaluacion>
+        <evaluacion id="E002" matriculaRef="M002">
+            <instrumento>Examen final</instrumento>
+            <convocatoria>extraordinaria</convocatoria>
+            <nota>8.0</nota>
+        </evaluacion>
+    </evaluaciones>
+</plataforma>

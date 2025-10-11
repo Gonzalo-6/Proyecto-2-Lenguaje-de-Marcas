@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="platafomra">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name= "cursos" type="CursosType"/>
+                <xs:element name= "alumnos" type="AlumnosType"/>
+                <xs:element name= "matriculas" type="MatriculasType"/>
+                <xs:element name= "evaluaciones" type="EvaluacionesType"/>
+            </xs:sequence>
+            <xs:attribute name="fecha_publicacion" type="xs:date" use="required"/>
+        </xs:complexType> 
+    </xs:element>
+    <xs:complexType name="CursosType">
+        <xs:sequence>
+            <xs:element name="curso" type="CursoType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CursoType">
+        <xs:sequence>
+            <xs:element name="titulo" type="xs:string"/>
+            <xs:element name="nivel" type="xs:string"/>
+            <xs:element name="modalidad" type="xs:string"/>
+            <xs:element name="horas" type="xs:positiveInteger"/>
+            <xs:element name="modulos" type="ModulosType" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="codigo" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="ModulosType">
+        <xs:sequence>
+            <xs:element name="modulo" type="ModuloType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ModuloType">
+        <xs:sequence>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="horas" type="xs:positiveInteger"/>
+        </xs:sequence>
+        <xs:attribute name="clave" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="AlumnosType">
+        <xs:sequence>
+            <xs:element name="alumno" type="AlumnoType" maxOccurs="unbounded"/>
+        </xs:sequence>  
+    </xs:complexType>
+    <xs:complexType name="AlumnoType">
+        <xs:sequence>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="telefono" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="nif" type="xs:string" use="optional"/>
+    </xs:complexType>
+    <xs:complexType name="MatriculasType">
+        <xs:sequence>
+            <xs:element name="matricula" type="MatriculaType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="MatriculaType">
+        <xs:sequence>
+            <xs:element name="fecha_alta" type="xs:date"/>
+            <xs:element name="estado" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="alumnoRef" type="xs:IDREF" use="required"/>
+        <xs:attribute name="cursoRef" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="EvaluacionesType">
+        <xs:sequence>
+            <xs:element name="evaluacion" type="EvaluacionType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EvaluacionType">
+        <xs:sequence>
+            <xs:element name="instrumento" type="xs:string"/>
+            <xs:element name="convocatoria" type="xs:string"/>
+            <xs:element name="nota" type="xs:decimal"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="matriculaRef" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+</xs:schema>
