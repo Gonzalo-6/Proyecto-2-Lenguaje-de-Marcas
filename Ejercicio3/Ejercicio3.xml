@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <library>
     <book>
-        <title>>Cien años de soledad</title>
+        <title>Cien años de soledad</title>
         <author>Grabriel Garcia Marquez</author>
         <year>1967</year>
         <publisher>Editorial Sudamericana</publisher>
@@ -11,7 +11,7 @@
         <title>Hamlet</title>
         <author>William Shakespeare</author>
         <year>1603</year>
-        <publisher>alianza Editorial</publisher>
+        <publisher>Alianza Editorial</publisher>
         <pages>152</pages>
     </book>
     <book>

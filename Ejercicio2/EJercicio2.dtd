@@ -7,7 +7,7 @@
 <!ELEMENT curso (titulo, nivel, modalidad, horas, modulos?)>
 <!ATTLIST curso
  id ID #REQUIRED
- codigo CDATA #IMPLIED
+ codigo CDATA #REQUIRED
 >
 <!ELEMENT titulo (#PCDATA)>
 <!ELEMENT nivel (#PCDATA)>
@@ -16,7 +16,7 @@
 <!ELEMENT modulos (modulo+)>
 <!ELEMENT modulo (nombre, horas)>
 <!ATTLIST modulo
- clave CDATA #IMPLIED
+ clave CDATA #REQUIRED
 >
 <!ELEMENT nombre (#PCDATA)>
 <!-- ALUMNOS -->

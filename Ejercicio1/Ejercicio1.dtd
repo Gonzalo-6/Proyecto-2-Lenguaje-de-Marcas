@@ -12,7 +12,8 @@
 <!ELEMENT titulo (#PCDATA)>
 <!ELEMENT anio (#PCDATA)>   
 <!ELEMENT autores (autor+)>
-<!ELEMENT autor (#PCDATA)>  
+<!ELEMENT autor (#PCDATA)> 
+<!ELEMENT nombre (#PCDATA)> 
 <!ELEMENT orcid (#PCDATA)>
 <!ELEMENT etiquetas (etiqueta+)>
 <!ELEMENT etiqueta (#PCDATA)>
@@ -47,6 +48,6 @@
  itemRef IDREF #REQUIRED
  usuarioRef IDREF #REQUIRED
  >
-<!ELEMENT fecha_de_inicio (#PCDATA)>
-<!ELEMENT fecha_de_fin (#PCDATA)>
+<!ELEMENT fecha_inicio (#PCDATA)>
+<!ELEMENT fecha_fin (#PCDATA)>
 <!ELEMENT estado (#PCDATA)>
